@@ -1,0 +1,28 @@
+[project]
+name = "llm-tools-readonly-fs"
+version = "0.1"
+description = "Grants LLM the ability to glob, grep, and view files within a directory"
+readme = "README.md"
+authors = [{name = "Brett Harvey"}]
+license = "Apache-2.0"
+classifiers = []
+requires-python = ">=3.9"
+dependencies = [
+    "llm>=0.26"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/rbharvs/llm-tools-readonly-fs"
+Changelog = "https://github.com/rbharvs/llm-tools-readonly-fs/releases"
+Issues = "https://github.com/rbharvs/llm-tools-readonly-fs/issues"
+CI = "https://github.com/rbharvs/llm-tools-readonly-fs/actions"
+
+[project.entry-points.llm]
+llm_tools_readonly_fs = "llm_tools_readonly_fs"
+
+[project.optional-dependencies]
+test = ["pytest", "llm-echo>=0.3a1"]

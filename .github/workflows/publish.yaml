@@ -1,0 +1,34 @@
+name: Publish
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: none
+
+jobs:
+  ci:
+    permissions:
+      contents: read
+    uses: rbharvs/llm-tools-readonly-fs/.github/workflows/ci.yaml@main
+
+  publish:
+    permissions:
+      contents: read
+      id-token: write
+    environment: release
+    runs-on: ubuntu-latest
+    needs: ci
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca
+
+      - name: Build package
+        run: uv build
+
+      - name: Publish package
+        run: uv publish
