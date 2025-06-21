@@ -1,17 +1,15 @@
-import llm
 import json
+
+import llm
+
 from llm_tools_readonly_fs import view
 
 
-def test_tool():
+def test_tool() -> None:
     model = llm.get_model("echo")
     chain_response = model.chain(
         json.dumps(
-            {
-                "tool_calls": [
-                    {"name": "view", "arguments": {"input": "pelican"}}
-                ]
-            }
+            {"tool_calls": [{"name": "view", "arguments": {"input": "pelican"}}]}
         ),
         tools=[view],
     )
