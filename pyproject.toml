@@ -1,6 +1,6 @@
 [project]
 name = "llm-tools-readonly-fs"
-version = "0.1"
+version = "0.1.0"
 description = "Grants LLM the ability to glob, grep, and view files within a directory"
 readme = "README.md"
 authors = [{name = "Brett Harvey"}]
