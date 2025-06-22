@@ -22,6 +22,9 @@ CI = "https://github.com/rbharvs/llm-tools-readonly-fs/actions"
 requires = ["uv_build>=0.6.6,<0.7"]
 build-backend = "uv_build"
 
+[project.entry-points.llm]
+llm_tools_readonly_fs = "llm_tools_readonly_fs.llm_tools_readonly_fs"
+
 [tool.ruff]
 src = ["src", "tests"]
 
