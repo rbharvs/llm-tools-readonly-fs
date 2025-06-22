@@ -5,7 +5,7 @@
 [![Tests](https://github.com/rbharvs/llm-tools-readonly-fs/actions/workflows/test.yml/badge.svg)](https://github.com/rbharvs/llm-tools-readonly-fs/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/rbharvs/llm-tools-readonly-fs/blob/main/LICENSE)
 
-Grants LLM the ability to list, view, and search across files within a directory
+Grants LLM the ability to glob, grep, and view files within a directory.
 
 ## Installation
 
@@ -18,7 +18,7 @@ llm install llm-tools-readonly-fs
 To use this with the [LLM command-line tool](https://llm.datasette.io/en/stable/usage.html):
 
 ```bash
-llm --tool view "Example prompt goes here" --tools-debug
+llm --tool ReadonlyFsTools "Example prompt goes here" --tools-debug
 ```
 
 With the [LLM Python API](https://llm.datasette.io/en/stable/python-api.html):
@@ -37,17 +37,34 @@ result = model.chain(
 
 ## Development
 
-To set up this plugin locally, first checkout the code. Then create a new virtual environment:
+To set up this plugin locally, first checkout the code. Then install the dependencies and development dependencies:
 ```bash
 cd llm-tools-readonly-fs
-python -m venv venv
-source venv/bin/activate
+uv sync --dev
 ```
-Now install the dependencies and test dependencies:
+
+To add the plugin to your local LLM installation, in editable mode, run:
 ```bash
-llm install -e '.[test]'
+llm install -e .
 ```
+
 To run the tests:
 ```bash
-python -m pytest
+uv run pytest -v
 ```
+
+To run linting and formatting:
+```bash
+uv run ruff check --fix
+uv run ruff format
+```
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+## Links
+
+- [Homepage](https://github.com/rbharvs/llm-tools-readonly-fs)
+- [Issues](https://github.com/rbharvs/llm-tools-readonly-fs/issues)
+- [Changelog](https://github.com/rbharvs/llm-tools-readonly-fs/releases)
