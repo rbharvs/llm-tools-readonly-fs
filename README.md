@@ -1,9 +1,7 @@
 # llm-tools-readonly-fs
 
-[![PyPI](https://img.shields.io/pypi/v/llm-tools-readonly-fs.svg)](https://pypi.org/project/llm-tools-readonly-fs/)
-[![Changelog](https://img.shields.io/github/v/release/rbharvs/llm-tools-readonly-fs?include_prereleases&label=changelog)](https://github.com/rbharvs/llm-tools-readonly-fs/releases)
-[![Tests](https://github.com/rbharvs/llm-tools-readonly-fs/actions/workflows/test.yml/badge.svg)](https://github.com/rbharvs/llm-tools-readonly-fs/actions/workflows/test.yml)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/rbharvs/llm-tools-readonly-fs/blob/main/LICENSE)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Grants LLM the ability to glob, grep, and view files within a directory.
 
@@ -18,20 +16,20 @@ llm install llm-tools-readonly-fs
 To use this with the [LLM command-line tool](https://llm.datasette.io/en/stable/usage.html):
 
 ```bash
-llm --tool ReadonlyFsTools "Example prompt goes here" --tools-debug
+llm --tool ReadonlyFsTools "What test cases are missing?" --tools-debug
 ```
 
 With the [LLM Python API](https://llm.datasette.io/en/stable/python-api.html):
 
 ```python
 import llm
-from llm_tools_readonly_fs import view
+from llm_tools_readonly_fs import ReadonlyFsTools
 
 model = llm.get_model("gpt-4.1-mini")
 
 result = model.chain(
-    "Example prompt goes here",
-    tools=[view]
+    "What are the main classes this repository defines?",
+    tools=[ReadonlyFsTools()],
 ).text()
 ```
 
